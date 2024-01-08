@@ -8,6 +8,7 @@ const forecast = require('./utils/forecast');
 // console.log(__dirname);
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public');
@@ -87,6 +88,6 @@ app.get('*', (req, res) => {
 	res.render('error', { title: 'Error', issue: 'Page not found', name: 'Nicholas Hosken' });
 });
 
-app.listen(3000, () => {
-	console.log('Server started: Port 3000');
+app.listen(port, () => {
+	console.log('Server started on port:' + port);
 });
